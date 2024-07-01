@@ -15,6 +15,6 @@ export default class Team {
     for (const item of this.team) {
       yield item;
     }
-    // this.team.forEach(item => yield item);
+    // this.team.forEach(item => yield item);    //Этот вариант почему-то не работает
   }
 }

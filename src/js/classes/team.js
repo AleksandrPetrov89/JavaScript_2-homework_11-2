@@ -10,21 +10,11 @@ export default class Team {
     });
   }
 
-  // eslint-disable-next-line class-methods-use-this
-  [Symbol.iterator]() {
-    return {
-      current: 0,
-      length: this.team.length,
-      ar: this.team,
-      next() {
-        this.current += 1;
-        if (this.current <= this.length) {
-          return { done: false, value: this.ar[this.current - 1] };
-        // eslint-disable-next-line no-else-return
-        } else {
-          return { done: true };
-        }
-      },
-    };
+  * [Symbol.iterator]() {
+    // eslint-disable-next-line no-restricted-syntax
+    for (const item of this.team) {
+      yield item;
+    }
+    // this.team.forEach(item => yield item);
   }
 }
